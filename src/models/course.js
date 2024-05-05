@@ -7,7 +7,7 @@ const course = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    courseDuration: {
+    courseDescription: {
       type: String,
       required: true,
       trim: true,
