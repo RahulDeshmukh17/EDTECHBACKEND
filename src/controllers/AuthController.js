@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const OTP = require("../models/otp");
+const Profile = require("../models/profile");
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -8,7 +9,7 @@ require("dotenv").config();
 async function sendOtp(req, res) {
   try {
     const { email } = req.body;
-    const checkUserExist = await user.findOne({ email });
+    const checkUserExist = await User.findOne({ email });
     if (checkUserExist) {
       return res.status(401).json({
         success: false,

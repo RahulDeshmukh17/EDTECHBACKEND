@@ -1,7 +1,7 @@
 const Course = require("../models/course");
 const Category = require("../models/category");
 const User = require("../models/user");
-const uploadImage = require("../utils/imageUploader");
+const { uploadImageCloudinary } = require("../utils/imageUploader");
 
 async function createCourse(req, res) {
   try {
@@ -59,10 +59,11 @@ async function createCourse(req, res) {
 
     await User.findByIdAndUpdate(
       { _id: instructorDetails._id },
-      { $push: { courses: newCourse._id } }
+      { $push: { courses: newCourse._id } },
+      { new: true }
     );
 
-    //tags
+    //category
     await Category.findByIdAndUpdate(
       { _id: tagDetails._id },
       { $push: { courses: newCourse._id } }

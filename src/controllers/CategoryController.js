@@ -23,7 +23,7 @@ async function createCategory(req, res) {
     });
   } catch (err) {
     return res.status(500).json({
-      success: fasle,
+      success: false,
       message: err.message,
     });
   }
@@ -38,7 +38,7 @@ async function showAllCategory(req, res) {
     });
   } catch (err) {
     return res.status(500).json({
-      success: fasle,
+      success: false,
       message: err.message,
     });
   }
