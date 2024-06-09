@@ -44,7 +44,8 @@ const course = new mongoose.Schema(
       required: true,
     },
     tags: {
-      type: String,
+      type: [String],
+      required: true,
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,
@@ -55,7 +56,7 @@ const course = new mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         required: [true, "can't be blank"],
-        ref: "user",
+        ref: "User",
       },
     ],
   },
