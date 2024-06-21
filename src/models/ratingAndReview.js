@@ -16,6 +16,12 @@ const ratingAndReview = new mongoose.Schema(
       type: String,
       required: true,
     },
+    course: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "can't be blank"],
+      ref: "Course",
+      trim: true,
+    },
   },
   { timestamps: true }
 );
